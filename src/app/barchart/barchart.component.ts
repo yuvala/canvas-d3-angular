@@ -40,7 +40,8 @@ export class BarchartComponent implements OnInit {
   createChart() {
     const element = this.chartContainer.nativeElement;
     this.width = element.offsetWidth - this.margin.left - this.margin.right;
-    this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
+    this.height = 200; // element.offsetHeight - this.margin.top - this.margin.bottom || 200;
+    console.log(element.offsetWidth, this.height);
     const svg = d3
       .select(element)
       .append('svg')
@@ -54,7 +55,9 @@ export class BarchartComponent implements OnInit {
       .attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);
 
     // define X & Y domains
-    const xDomain = this.data.map(d => d[0]);
+    const xDomain = this.data.map(d => {
+      return d[0];
+    });
     const yDomain = [0, d3.max(this.data, d => d[1])];
 
     // create scales
@@ -115,7 +118,10 @@ export class BarchartComponent implements OnInit {
       })
       .attr('y', d => this.yScale(d[1]))
       .attr('width', d => this.xScale.bandwidth())
-      .attr('height', d => this.height - this.yScale(d[1]))
+      .attr('height', d => {
+        console.log(this.height - this.yScale(d[1]));
+        return this.height - this.yScale(d[1]);
+      })
       .style('fill', (d, i) => this.colors(i));
 
     // add new bars
@@ -123,8 +129,14 @@ export class BarchartComponent implements OnInit {
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('x', d => this.xScale(d[0]))
-      .attr('y', d => this.yScale(0))
+      .attr('x', d => {
+        console.log('this.xScale(d[0])', this.xScale(d[0]));
+        return this.xScale(d[0]);
+      })
+      .attr('y', d => {
+        console.log('this.yScale(0)', this.yScale(0));
+        return this.yScale(0);
+      })
       .attr('width', this.xScale.bandwidth())
       .attr('height', 0)
       .style('fill', (d, i) => this.colors(i))
