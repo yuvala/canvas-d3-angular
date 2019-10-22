@@ -1,3 +1,6 @@
  
+<!-- <button (click)="btnClick('graph')">Graph</button>
+<button (click)="btnClick('barChart')">Bar-chart</button>
+<router-outlet></router-outlet> -->
 
-<router-outlet></router-outlet>
+<app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>

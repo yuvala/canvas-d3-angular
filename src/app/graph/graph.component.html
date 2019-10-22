@@ -1,1 +1,9 @@
 <p>graph works!</p>
+
+
+<canvas #cnv 
+[height]="config.height" 
+[width]="config.width" 
+(window:resize)="onResize($event)"
+style="border:1px red solid"></canvas>
+<!-- <div (window:resize)="onResize($event)">ss</div> -->
