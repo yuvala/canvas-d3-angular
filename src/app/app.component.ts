@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,8 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'canvas-d3-angular';
   chartData: Array<any>;
-  constructor(private router: Router) {
-
+  messages = this.http.get<any[]>('http://localhost:5000/');
+  constructor(private router: Router, private http: HttpClient) {
     setTimeout(() => {
       this.generateData();
 
@@ -26,11 +27,8 @@ export class AppComponent {
 
   generateData() {
     this.chartData = [];
-    for (let i = 0; i < (8 + Math.floor(Math.random() * 10)); i++) {
-      this.chartData.push([
-        `Index ${i}`,
-        Math.floor(Math.random() * 100)
-      ]);
+    for (let i = 0; i < 8 + Math.floor(Math.random() * 10); i++) {
+      this.chartData.push([`Index ${i}`, Math.floor(Math.random() * 100)]);
     }
   }
 }

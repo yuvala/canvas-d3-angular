@@ -3,7 +3,7 @@ import { nextTick } from 'q';
 
 const app = express();
 
-app.use((req, res) => {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Header',
@@ -14,6 +14,7 @@ app.use((req, res) => {
     res.sendStatus(200);
   } else {
     console.log(`${req.ip} ${req.method} ${req.url}`);
+    res.set({ message: 11 });
     next();
   }
 });
@@ -23,5 +24,5 @@ app.get('/', (request, response) => {
 });
 
 app.listen(5000, () => {
-  console.log('port', 5000);
+  console.log('server started. port', 5000);
 });

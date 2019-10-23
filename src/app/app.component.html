@@ -1,6 +1,11 @@
- 
 <!-- <button (click)="btnClick('graph')">Graph</button>
 <button (click)="btnClick('barChart')">Bar-chart</button>
 <router-outlet></router-outlet> -->
+
+
+<div *ngFor="let message of messages | async">
+    {{message.message}}
+</div>
+
 
 <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
