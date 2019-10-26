@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'canvas-d3-angular';
+  private baseUrl = 'http://localhost:5000';
+
   chartData: Array<any>;
-  messages = this.http.get<any[]>('http://localhost:5000/');
-  constructor(private router: Router, private http: HttpClient) {
+  public messages: any; // = this.http.get<any[]>(`${this.baseUrl}/users`);
+
+  constructor(private router: Router, private service: AppService) {
     setTimeout(() => {
       this.generateData();
 
@@ -30,5 +34,12 @@ export class AppComponent {
     for (let i = 0; i < 8 + Math.floor(Math.random() * 10); i++) {
       this.chartData.push([`Index ${i}`, Math.floor(Math.random() * 100)]);
     }
+  }
+
+  handleClick(param) {
+    this.service.get(param).subscribe(res => {
+      console.log(res);
+      this.messages = res;
+    });
   }
 }

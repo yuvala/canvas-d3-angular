@@ -2,10 +2,14 @@
 <button (click)="btnClick('barChart')">Bar-chart</button>
 <router-outlet></router-outlet> -->
 
-
-<div *ngFor="let message of messages | async">
-    {{message.message}}
+<div *ngFor="let entry of messages">
+  {{entry.message}}
 </div>
 
-
 <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
+
+
+
+<button (click)="handleClick('/users')"> /users</button>
+
+<button (click)="handleClick('/list')"> /list</button>

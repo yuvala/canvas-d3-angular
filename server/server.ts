@@ -1,5 +1,6 @@
 import express from 'express';
 import { nextTick } from 'q';
+import { routes } from './routes';
 
 const app = express();
 
@@ -10,19 +11,16 @@ app.use((req, res, next) => {
     'Origin, X-Requsted-With, Content-Type, Accept'
   );
   res.header('Access-Control-Allow-Methods', 'OPTIONS, GET ,POST, PUT, DELETE');
+
   if ('OPTIONS' === req.method) {
     res.sendStatus(200);
   } else {
     console.log(`${req.ip} ${req.method} ${req.url}`);
-    res.set({ message: 11 });
     next();
   }
 });
+app.use('/', routes);
 
-app.get('/', (request, response) => {
-  response.send('Hello world!');
-});
-
-app.listen(5000, () => {
+app.listen(5000, '127.0.0.1', () => {
   console.log('server started. port', 5000);
 });
