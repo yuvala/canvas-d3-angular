@@ -40,6 +40,9 @@ export class AppComponent {
     this.service.get(param).subscribe(res => {
       console.log(res);
       this.messages = res;
+    },
+    err => {
+      console.log(err);
     });
   }
 }

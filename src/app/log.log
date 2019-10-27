@@ -1,0 +1,43 @@
+0 info it worked if it ends with ok
+1 warn npm npm does not support Node.js v12.13.0
+2 warn npm You should probably upgrade to a newer version of node as we
+3 warn npm can't make any promises that npm will work with this version.
+4 warn npm Supported releases of Node.js are the latest release of 6, 8, 9, 10, 11.
+5 warn npm You can find the latest version at https://nodejs.org/
+6 verbose cli [
+6 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+6 verbose cli   'C:\\Users\\Yuval\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+6 verbose cli   'install',
+6 verbose cli   '-g',
+6 verbose cli   'nodemon'
+6 verbose cli ]
+7 info using npm@6.4.1
+8 info using node@v12.13.0
+9 verbose npm-session 08a9a66a3e04eb0c
+10 silly install loadCurrentTree
+11 silly install readGlobalPackageData
+12 silly fetchPackageMetaData error for nodemon@latest error:0909006C:PEM routines:get_name:no start line
+13 timing stage:rollbackFailedOptional Completed in 1ms
+14 timing stage:runTopLevelLifecycles Completed in 300ms
+15 verbose stack Error: error:0909006C:PEM routines:get_name:no start line
+15 verbose stack     at Object.createSecureContext (_tls_common.js:152:17)
+15 verbose stack     at Object.connect (_tls_wrap.js:1407:48)
+15 verbose stack     at HttpsAgent.createConnection (https.js:125:22)
+15 verbose stack     at HttpsAgent.createSocket (C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\agentkeepalive\lib\_http_agent.js:265:26)
+15 verbose stack     at HttpsAgent.createSocket (C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\agentkeepalive\lib\agent.js:77:11)
+15 verbose stack     at HttpsAgent.addRequest (C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\agentkeepalive\lib\_http_agent.js:239:10)
+15 verbose stack     at new ClientRequest (_http_client.js:276:16)
+15 verbose stack     at request (https.js:309:10)
+15 verbose stack     at C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\node-fetch-npm\src\index.js:54:17
+15 verbose stack     at new Promise (<anonymous>)
+15 verbose stack     at fetch (C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\node-fetch-npm\src\index.js:41:10)
+15 verbose stack     at C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\make-fetch-happen\index.js:332:14
+15 verbose stack     at C:\Users\Yuval\AppData\Roaming\npm\node_modules\npm\node_modules\promise-retry\index.js:29:24
+16 verbose cwd c:\dev\canvas-d3-angular\server
+17 verbose Windows_NT 6.1.7601
+18 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Yuval\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "nodemon"
+19 verbose node v12.13.0
+20 verbose npm  v6.4.1
+21 error code ERR_OSSL_PEM_NO_START_LINE
+22 error error:0909006C:PEM routines:get_name:no start line
+23 verbose exit [ 1, true ]
