@@ -1,7 +1,7 @@
 import express from 'express';
 import { nextTick } from 'q';
 import { routes } from './routes';
-
+const port = 5000;
 const app = express();
 
 app.use((req, res, next) => {
@@ -15,12 +15,12 @@ app.use((req, res, next) => {
   if ('OPTIONS' === req.method) {
     res.sendStatus(200);
   } else {
-    console.log(`${req.ip} ${req.method} ${req.url}`);
+    console.log(`@server log:${req.ip} ${req.method} ${req.url}`);
     next();
   }
 });
 app.use('/', routes);
 
-app.listen(5000, '127.0.0.1', () => {
-  console.log('server started. port', 5000);
+app.listen(port, '127.0.0.1', () => {
+  console.log(`server started at http://localhost:${port}`);
 });

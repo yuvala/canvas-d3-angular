@@ -19,7 +19,7 @@
 12 silly fetchPackageMetaData error for nodemon@latest error:0909006C:PEM routines:get_name:no start line
 13 timing stage:rollbackFailedOptional Completed in 1ms
 14 timing stage:runTopLevelLifecycles Completed in 300ms
-15 verbose stack Error: error:0909006C:PEM routines:get_name:no start line
+15 npm 
 15 verbose stack     at Object.createSecureContext (_tls_common.js:152:17)
 15 verbose stack     at Object.connect (_tls_wrap.js:1407:48)
 15 verbose stack     at HttpsAgent.createConnection (https.js:125:22)

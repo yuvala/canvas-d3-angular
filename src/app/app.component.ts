@@ -18,10 +18,10 @@ export class AppComponent {
 
   constructor(private router: Router, private service: AppService) {
     setTimeout(() => {
-      this.generateData();
+      this.handleClick('/graph');
 
       // change the data periodically
-      setInterval(() => this.generateData(), 5000);
+      setInterval(() => this.handleClick('/graph'), 5000);
     }, 1000);
   }
 
@@ -29,20 +29,27 @@ export class AppComponent {
     this.router.navigateByUrl(`/${path}`);
   }
 
-  generateData() {
-    this.chartData = [];
-    for (let i = 0; i < 8 + Math.floor(Math.random() * 10); i++) {
-      this.chartData.push([`Index ${i}`, Math.floor(Math.random() * 100)]);
-    }
-  }
+  // generateData() {
+  //   this.chartData = [];
+  //   for (let i = 0; i < 8 + Math.floor(Math.random() * 10); i++) {
+  //     this.chartData.push([`Index ${i}`, Math.floor(Math.random() * 100)]);
+  //   }
+  // }
 
   handleClick(param) {
-    this.service.get(param).subscribe(res => {
-      console.log(res);
-      this.messages = res;
-    },
-    err => {
-      console.log(err);
-    });
+    const p = param;
+    this.service.get(param).subscribe(
+      res => {
+        if (p === '/graph') {
+          this.chartData = res[0].data;
+        }
+        console.log(this, p);
+
+        this.messages = res;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
