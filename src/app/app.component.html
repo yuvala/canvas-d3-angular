@@ -8,10 +8,12 @@
 
 <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
 
-{{messages| json}}
+
 
 <button (click)="handleClick('/users')"> /users</button>
 
 <button (click)="handleClick('/list')"> /list</button>
 
 <button (click)="handleClick('/graph')"> /graphData</button>
+<br>
+{{messages| json}}
