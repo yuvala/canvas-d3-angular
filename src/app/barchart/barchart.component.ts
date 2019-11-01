@@ -31,7 +31,7 @@ export class BarchartComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.generateData();
+   // this.generateData();
     this.createChart();
     if (this.data) {
       this.updateChart();
@@ -146,10 +146,10 @@ export class BarchartComponent implements OnInit {
       .attr('height', d => this.height - this.yScale(d[1]));
   }
 
-  generateData() {
-    this.chartData = [];
-    for (let i = 0; i < 8 + Math.floor(Math.random() * 10); i++) {
-      this.chartData.push([`Index ${i}`, Math.floor(Math.random() * 100)]);
-    }
-  }
+  // generateData() {
+  //   this.chartData = [];
+  //   for (let i = 0; i < 8 + Math.floor(Math.random() * 10); i++) {
+  //     this.chartData.push([`Index ${i}`, Math.floor(Math.random() * 100)]);
+  //   }
+  // }
 }

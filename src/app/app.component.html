@@ -6,7 +6,7 @@
   {{entry.message}}
 </div>
 
-<app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
+<app-barchart *ngIf="data.chartData.length" [data]="data.chartData"></app-barchart>
 
 
 
@@ -16,4 +16,5 @@
 
 <button (click)="handleClick('/graph')"> /graphData</button>
 <br>
-{{messages| json}}
+ {{messages| json}}
+ 

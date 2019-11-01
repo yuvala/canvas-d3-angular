@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'canvas-d3-angular';
   private baseUrl = 'http://localhost:5000';
 
-  chartData: Array<any>;
+  data = { chartData: [] };
   public messages: any; // = this.http.get<any[]>(`${this.baseUrl}/users`);
 
   constructor(private router: Router, private service: AppService) {
@@ -41,7 +41,8 @@ export class AppComponent {
     this.service.get(param).subscribe(
       res => {
         if (p === '/graph') {
-          this.chartData = res[0].data;
+          this.data.chartData = res[0].data;
+          this.messages = res[0].data;
         }
         console.log(this, p);
 
