@@ -17,12 +17,13 @@ export class AppComponent {
   public messages: any; // = this.http.get<any[]>(`${this.baseUrl}/users`);
 
   constructor(private router: Router, private service: AppService) {
-    setTimeout(() => {
-      this.handleClick('/graph');
+    this.handleClick('/graph');
+    // setTimeout(() => {
+    //   this.handleClick('/graph');
 
-      // change the data periodically
-      setInterval(() => this.handleClick('/graph'), 5000);
-    }, 1000);
+    //   // change the data periodically
+    //   setInterval(() => this.handleClick('/graph'), 5000);
+    // }, 1000);
   }
 
   btnClick(path) {

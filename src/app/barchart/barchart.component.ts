@@ -4,7 +4,9 @@ import {
   ViewChild,
   ElementRef,
   ViewEncapsulation,
-  Input
+  Input,
+  IterableDiffers,
+  DoCheck
 } from '@angular/core';
 import * as d3 from 'd3';
 
@@ -14,8 +16,9 @@ import * as d3 from 'd3';
   styleUrls: ['./barchart.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BarchartComponent implements OnInit {
+export class BarchartComponent implements OnInit, DoCheck {
   public chartData: Array<any>;
+  differ: any;
 
   @ViewChild('chart', { static: true }) private chartContainer: ElementRef;
   @Input() public data: Array<any>;
@@ -28,15 +31,28 @@ export class BarchartComponent implements OnInit {
   private colors: any;
   private xAxis: any;
   private yAxis: any;
-  constructor() {}
 
+  constructor(differs: IterableDiffers) {
+    this.differ = differs.find([]).create(null);
+  }
+
+  ngDoCheck() {
+    const change = this.differ.diff(this.data);
+    console.log(change);
+    this.updateChart();
+    // here you can do what you want on array change
+    // you can check for forEachAddedItem or forEachRemovedItem on change object to see the added/removed items
+    // Attention: ngDoCheck() is triggered at each binded variable on componenet;
+    // if you have more than one in your component, make sure you filter here the one you want.
+  }
   ngOnInit() {
-   // this.generateData();
+    // this.generateData();
     this.createChart();
     if (this.data) {
       this.updateChart();
     }
   }
+
   createChart() {
     const element = this.chartContainer.nativeElement;
     this.width = element.offsetWidth - this.margin.left - this.margin.right;
