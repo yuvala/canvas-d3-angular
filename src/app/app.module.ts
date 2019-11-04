@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { GraphComponent } from './graph/graph.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CanvasChartComponent } from './canvas-chart/canvas-chart.component';
+import { DomtocanvasComponent } from './domtocanvas/domtocanvas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GraphComponent,
-    BarchartComponent
+    BarchartComponent,
+    CanvasChartComponent,
+    DomtocanvasComponent
   ],
   imports: [
     BrowserModule,

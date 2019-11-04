@@ -2,19 +2,21 @@
 <button (click)="btnClick('barChart')">Bar-chart</button>
 <router-outlet></router-outlet> -->
 
-<div *ngFor="let entry of messages">
-  {{entry.message}}
-</div>
+ 
 
-<app-barchart *ngIf="data.chartData.length" [data]="data.chartData"></app-barchart>
-
+<!-- <app-barchart *ngIf="data.chartData.length" [data]="data.chartData"></app-barchart> -->
+<!-- 
+   <app-canvas-chart *ngIf="data.chartData.length" [data]="data.chartData"></app-canvas-chart>
+   -->
 
 
 <button (click)="handleClick('/users')"> /users</button>
 
 <button (click)="handleClick('/list')"> /list</button>
 
-<button (click)="handleClick('/graph')"> /graphData</button>
+<button (click)="handleClick('/graph')"> <b>dd</b>/graphData</button>
 <br>
- {{messages| json}}
+ {{data.chartData| json}}
  
+ 
+   <router-outlet></router-outlet>
