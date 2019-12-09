@@ -1,0 +1,32 @@
+@import "params";
+
+ 
+%padding-10 {
+    padding: 10px;
+}
+ 
+%padding-11 {
+    padding: 11px;
+}
+ 
+%padding-12 {
+    padding: 12px;
+}
+ 
+%padding-13 {
+    padding: 13px;
+}
+
+%White-color {
+    color:white; 
+}
+%button {
+
+    border:1px $red solid;
+    background-color: $green;
+    @extend %padding-10;
+    @extend %White-color; 
+    &:hover {
+        background-color: $blue;
+    }  
+}

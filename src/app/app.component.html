@@ -8,14 +8,15 @@
 <!-- 
    <app-canvas-chart *ngIf="data.chartData.length" [data]="data.chartData"></app-canvas-chart>
    -->
-
+   <app-header></app-header>
+<div>
 
 <button (click)="handleClick('/users')"> /users</button>
 
 <button (click)="handleClick('/list')"> /list</button>
 
 <button (click)="handleClick('/graph')"> <b>dd</b>/graphData</button>
-<br>
+</div>
  {{data.chartData| json}}
  
  

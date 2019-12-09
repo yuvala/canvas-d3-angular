@@ -1,0 +1,10 @@
+/* header module  */
+@import "../../styles/params";
+@import "../../styles/mixin";
+
+.button-bbbb {
+ @extend %button;
+  &:hover {
+      background-color: $yellow;
+  }
+}
